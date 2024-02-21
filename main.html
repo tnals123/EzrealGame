@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        canvas{
+            border : 1px solid black;
+            display : block;
+            margin : auto;
+        }
+        #qSkillBox {
+            width : 60px;
+            height : 60px;
+            margin-bottom : 20px;
+            border : 1px solid black;
+        }
+        #healthBox {
+            width : 500px;
+            height : 25px;
+            border : 1px solid black;
+            border-radius : 4px;
+            background-color : rgb(236,53,53);
+        }
+        #manaBox {
+            width : 500px;
+            height : 25px;
+            margin-top : 3px;
+            border : 1px solid black;
+            border-radius : 4px;
+            background-color : rgb(84,80,243);
+        }
+    </style>
+</html>
+<body>
+    <div>
+        <canvas id = "gameCanvas" width = "800" height = "600"></canvas>
+        <canvas id = "qSkillBox"></canvas>
+        <canvas id = "healthBox"></canvas>
+        <canvas id = "manaBox"></canvas>
+    </div>
+
+    <script src = "game.js"></script>
+    <script src = "map"></script>
+    <script src = "character"></script>
+    <script src = "skills"></script>
+    <script src = "minion"></script>
+    <script src = "skillBox"></script>
+    <script src = "statusBox"></script>
+</body>
