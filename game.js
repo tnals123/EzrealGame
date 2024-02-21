@@ -124,7 +124,6 @@ function gameLoop() {
 
 window.onload = function() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    initializeMapElements();
     gameLoop();
 }
 
