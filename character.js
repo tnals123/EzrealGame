@@ -5,7 +5,25 @@ let currentFrame = 0;
 let intervalTime = 0;
 const walkingDuration = 10000;
 const ezrealStop = [];
-const ezrealWalkingRight = [];
+const ezrealWalkingRight = [
+    
+    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/00.png',
+    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/01.png',
+    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/02.png',
+    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/03.png',
+    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/04.png',
+    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/05.png',
+    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/06.png',
+    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/07.png',
+    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/08.png',
+    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/09.png',
+    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/10.png',
+    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/11.png',
+    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/12.png',
+    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/13.png',
+    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/14.png',
+    
+];
 const ezrealWalkingLeft = [];
 
 let animationFrames = {

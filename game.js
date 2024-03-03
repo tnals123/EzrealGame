@@ -1,4 +1,4 @@
-const canvas = document.getElementByOd('gameCanvas');
+const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
 const mapWidth = 4000;
@@ -38,12 +38,12 @@ canvas.addEventListener('mousemove', function(event) {
     missileMouseX = event.clientX - rect.left;
     missileMouseY = event.clientY - rect.top;
     moveMouseX = missileMouseX + player.x - screenCenterX;
-    moveMouseY = misiileMouseY + player.y - screenCenterY;
+    moveMouseY = missileMouseY + player.y - screenCenterY;
 });
 
 canvas.addEventListener('mousedown', function(event) {
     if ((event.button === 2)||(event.which === 3)) {
-        movePlyaer(event);
+        movePlayer(event);
     }
 });
 
@@ -53,7 +53,7 @@ canvas.addEventListener('contextmenu', function(event) {
 
 document.addEventListener('keydown', function(event) {
     if (event.key === 'q' || event.key === 'Q') {
-        fireMissile(moveMouseX, moveMouseY, player.x , player.y);
+        fireSkill(moveMouseX, moveMouseY, player.x , player.y);
     }
 });
 
