@@ -1,12 +1,23 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
-
-const mapWidth = 4000;
-const mapHeight = 4000;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 //카메라
 let screenCenterX = canvas.width / 2;
 let screenCenterY = canvas.height / 2;
+
+const mapWidth = 4000;
+const mapHeight = 4000;
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    // 여기에 다른 캔버스 크기에 맞춰서 수행할 작업을 추가할 수 있습니다.
+}
+
+// 윈도우 크기 변경 시에 캔버스 크기 다시 조정
+window.addEventListener('resize', resizeCanvas);
 
 //캐릭터 이동을 위한 마우스 위치
 let moveMouseX = 0;
@@ -98,9 +109,9 @@ function updateGameArea() {
     drawMap(ctx, screenCenterX - player.x, screenCenterY - player.y);
     updatePlayerPosition();
     drawEzreal(screenCenterX, screenCenterY, lastDirection);
-    minionUpdate(ctx, player.x, player.y);
-    healthUpdate();
-    manaUpdate();
+    // minionUpdate(ctx, player.x, player.y);
+    // healthUpdate();
+    // manaUpdate();
     Qskills.forEach((Qskill,index) => {
         if (Qskill.active) {
             const missileScreenX = Qskill.x - (player.x - screenCenterX);
@@ -123,6 +134,7 @@ function gameLoop() {
 }
 
 window.onload = function() {
+    preloadImages();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     gameLoop();
 }

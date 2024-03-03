@@ -2,27 +2,42 @@ let lastDirection = 'stop';
 const img = new Image();
 img.src = '';
 let currentFrame = 0;
-let intervalTime = 0;
-const walkingDuration = 10000;
-const ezrealStop = [];
+let intervalTime = 70;
+let lastUpdateTime = Date.now();
+const walkingDuration = 18000;
+const ezrealStop = ['src/IDLE.png'];
+
+function preloadImages() {
+    
+    const imagesToPreload = [
+        
+        'src/runningImage/00.png',
+        'src/runningImage/01.png',
+        'src/runningImage/02.png',
+        'src/runningImage/03.png',
+        'src/runningImage/04.png',
+        'src/runningImage/05.png',
+        'src/runningImage/06.png',
+        'src/runningImage/07.png',
+        'src/IDLE.png',
+    ];
+
+    for (let i = 0; i < imagesToPreload.length; i++) {
+        const img = new Image();
+        img.src = imagesToPreload[i];
+    }
+}
+
 const ezrealWalkingRight = [
-    
-    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/00.png',
-    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/01.png',
-    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/02.png',
-    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/03.png',
-    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/04.png',
-    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/05.png',
-    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/06.png',
-    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/07.png',
-    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/08.png',
-    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/09.png',
-    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/10.png',
-    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/11.png',
-    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/12.png',
-    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/13.png',
-    'C:/Users/CKIRUser/Desktop/roqkf/src/runningImage/14.png',
-    
+    'src/runningImage/00.png',
+    'src/runningImage/01.png',
+    'src/runningImage/02.png',
+    'src/runningImage/03.png',
+    'src/runningImage/04.png',
+    'src/runningImage/05.png',
+    'src/runningImage/06.png',
+    'src/runningImage/07.png',
+
 ];
 const ezrealWalkingLeft = [];
 
@@ -35,7 +50,10 @@ let animationFrames = {
 }
 
 function updateFrame() {
-    currentFrame = (currentFrame + 1) % animationFrames[lastDirection].length;
+    if (Date.now() - lastUpdateTime >= intervalTime) {
+        currentFrame = (currentFrame + 1) % animationFrames[lastDirection].length;
+        lastUpdateTime = Date.now(); // 현재 시간으로 업데이트
+    }
 }
 
 function drawEzreal(x, y, lastDirection) {
